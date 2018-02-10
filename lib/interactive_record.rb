@@ -44,7 +44,7 @@ class InteractiveRecord
 
   def save
     sql = <<-SQL
-      INSERT INTO #{self.table_name}
+      INSERT INTO #{table_name_for_insert}
       (#{col_names_for_insert})
       VALUES (#{values_for_insert})
       SQL
@@ -61,7 +61,7 @@ class InteractiveRecord
 
   def self.find_by (lookup = {})
     sql = <<-SQL
-      SELECT * FROM #{table_name_for_insert}
+      SELECT * FROM #{self.table_name}
       WHERE #{lookup.keys.first} = '#{lookup.values.first}'
       SQL
 
