@@ -54,11 +54,11 @@ class InteractiveRecord
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
   end
 
-  def find_by_name(name)
+  def self.find_by_name(name)
     name_hash = {"name"=>name}
   end
 
-  def find_by (lookup = {})
+  def self.find_by (lookup = {})
     sql = <<-SQL
       SELECT * FROM #{table_name_for_insert}
       WHERE #{lookup.keys.first} = '#{lookup.values.first}'
