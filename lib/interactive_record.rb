@@ -56,6 +56,7 @@ class InteractiveRecord
 
   def self.find_by_name(name)
     name_hash = {"name"=>name}
+    self.find_by(name_hash)
   end
 
   def self.find_by (lookup = {})
