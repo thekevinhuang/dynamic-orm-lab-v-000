@@ -64,7 +64,7 @@ class InteractiveRecord
       WHERE #{lookup.keys.first} = '#{lookup.values.first}'
       SQL
 
-    DB[:conn].execute(sql)    
+    DB[:conn].execute(sql)
   end
-  
+
 end
